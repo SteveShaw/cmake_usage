@@ -1,0 +1,7 @@
+1. One day, after windows 10 was updated, I found the "x64 Native Tools Command Prompts for VS2017" cannot work
+2. By checking the command line parameter, I found vsvars64.bat was deleted from directory "c:\Program Files (x86)\Microsoft Visual Studio\2017\WDExpress\VC\Auxiliary\Build\"
+3. Solution:
+	3.1 Copy vcvars32.bat to vsvars64.bat
+	3.2 open vsvars64.bat, then change "x86" to "amd64" and then save. (Note: we need admin rights to save).
+	3.3 Right click "x64 Native Tools Command Prompts for VS2017" and select "Run as administrator"
+	3.4 After running """cmake -G "Visual Studio 15 2017 Win64" ..\""", I need to open the generated sln file from the command line to inherit the admin rights. Otherwise, the build will fail.
